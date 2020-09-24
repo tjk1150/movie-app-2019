@@ -1,14 +1,5 @@
 import React from 'react';
 
-function Food({name, picture}){
-  return(
-  <div>
-    <h1>I like {name}</h1>
-    <img src={picture} />
-  </div>
-  );
-}
-
 const foodILike = [
   {
     id: 1,
@@ -37,11 +28,20 @@ const foodILike = [
   }
 ];
 
+function Food({name, picture}){
+  return(
+  <div>
+    <h1>I like {name}</h1>
+    <img src={picture} alt={name}/>
+  </div>
+  );
+}
+
 function App() {
   return (
     <div>
       {foodILike.map(dish => (
-        <Food id={dish.id} name={dish.name} picture={dish.image}/>
+        <Food key={dish.id} name={dish.name} picture={dish.image} />
       ))}
     </div>
   );
